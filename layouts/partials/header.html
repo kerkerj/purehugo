@@ -27,5 +27,12 @@
 
     <link rel="stylesheet" href="{{ .Site.BaseUrl }}/css/all.min.css">
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Syntax Highlight -->
+    {{ if .Site.Params.highlight_style }}
+      <link rel="stylesheet" href="{{ .Site.BaseUrl }}/css/highlight/{{ .Site.Params.highlight_style }}.css">
+    {{ else }}
+      <link rel="stylesheet" href="{{ .Site.BaseUrl }}/css/highlight/solarized_dark.css">
+    {{ end }}
 </head>
 <body>

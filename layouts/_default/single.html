@@ -7,7 +7,7 @@
         <div>
             <!-- A wrapper for all the blog posts -->
             <div class="posts">
-                <h1 class="content-subhead">{{ .Date.Format "02 Jan 2006, 15:04" }}</h1>
+                <h1 class="content-subhead">{{ .Date.Format "2006-01-02 15:04" }}</h1>
                 <section class="post">
                     <header class="post-header">
 
@@ -18,7 +18,7 @@
                                 By <strong class="post-author">{{ . }}</strong>
                             {{ end }}
                             {{ if isset .Params "categories" }}
-                                under 
+                                under
                                 {{ $baseUrl := .Site.BaseUrl }}
                                 {{ range .Params.categories }}<a class="post-category post-category-{{ . }}" href="{{ $baseUrl }}/categories/{{ . | urlize }}">{{ . }}</a>{{ end }}
                             {{ end }}
@@ -33,7 +33,7 @@
                             {{ if isset .Site.Params "twitter" }}
                             <a href="#" data-type="twitter" data-url="{{ .Permalink }}" data-description="{{ .Description }}" data-via="{{ .Site.Params.twitter }}" class="prettySocial fa fa-twitter"></a>
                             {{ end }}
-                            
+
                         </div>
                     </div>
                     <div class="post-description">
