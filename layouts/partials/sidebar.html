@@ -11,7 +11,7 @@
               {{ $baseUrl := .Site.BaseUrl }}
               {{ range $element := .Site.Params.static_links }}
                 <li class="pure-menu-link">
-                  <a href="{{ $baseUrl }}/{{ urlize $element }}/">{{ $element }}</a>
+                  <a href="{{ $baseUrl }}{{ urlize $element }}/">{{ $element }}</a>
                 </li>
               {{ end }}
             </ul>
