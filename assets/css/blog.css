@@ -235,3 +235,17 @@ h3 {
         bottom: 0;
     }
 }
+
+/* Only For Code Tags */
+
+code {
+  font-family: Menlo, Monaco, "Courier New", monospace;
+}
+
+code {
+  padding: .25em .5em;
+  font-size: 85%;
+  color: #bf616a;
+  background-color: #f9f9f9;
+  border-radius: 3px;
+}

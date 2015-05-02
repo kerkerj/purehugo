@@ -6,6 +6,17 @@
         </hgroup>
 
         <nav class="nav">
+            <!-- Static Links -->
+            <ul class="pure-menu-list">
+              {{ $baseUrl := .Site.BaseUrl }}
+              {{ range $element := .Site.Params.static_links }}
+                <li class="pure-menu-link">
+                  <a href="{{ $baseUrl }}/{{ lower $element }}/">{{ $element }}</a>
+                </li>
+              {{ end }}
+            </ul>
+
+            <!-- Social Links -->
             <ul class="nav-list">
                 {{ with .Site.Params.twitter }}
                 <li class="nav-item">
@@ -27,6 +38,9 @@
                     <a class="pure-button" href="{{ . }} "><i class="fa fa-linkedin-alt"></i> Linkedin</a>
                 </li>
                 {{ end }}
+                <li class="nav-item">
+                    <a class="pure-button" href="/index.xml"><i class="fa fa-rss-alt"></i> RSS</a>
+                </li>
             </ul>
         </nav>
     </div>

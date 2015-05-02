@@ -3,19 +3,48 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ .Title }} &middot; {{ .Site.Title }}</title>
 
-    <meta name="description" content="{{ if .IsNode }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ else }}{{ with .Description }}{{ . }}{{ end }}{{ end }}">
+    {{ if eq .Url "/" }}
+    <!-- Index -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ .Site.BaseUrl }}">
+    <meta property="og:title" content="{{ .Site.Title }}">
+    {{ range first 1 .Data.Pages }}
+    <meta property="og:description" content="{{ .Summary }}">
+    {{ if isset .Params "eyecatch" }}
+    <meta property="og:image" content="{{ .Site.BaseUrl }}/images/{{ .Params.eyecatch }}">
+    {{ end }}
+    {{ end }}
+    {{ else if eq .Url "/post/" }}
+    <!-- Post -->
+    <meta property="og:title" content="All Entries | {{ .Site.Title }}">
+    <meta property="og:url" content="{{ .Site.BaseUrl }}">
+    {{ else if in .Url "/tags/" }}
+    <!-- Category -->
+    <meta property="og:title" content="{{ .Site.Title }}">
+    <meta property="og:url" content="{{ .Site.BaseUrl }}">
+    {{ else }}
+    <!-- Article --> 
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="{{ .Title }} | {{ .Site.Title }}">
+    <meta property="og:url" content="{{ .Permalink }}">
+    <meta property="og:description" content="{{ if .IsNode }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ else }}{{ with .Description }}{{ . }}{{ end }}{{ end }}">
+    {{ if isset .Params "eyecatch" }}
+    <meta property="og:image" content="{{ .Site.BaseUrl }}/images/{{ .Params.eyecatch }}">
+    {{ end }}
+    {{ end }}
+    <meta property="og:site_name" content="{{ .Site.Title }}">
 
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary">
     {{ with .Site.Params.twitter }}<meta name="twitter:site" content="{{ . }}" />{{ end }}
     <meta name="twitter:title" content="{{ .Title }} &middot; {{ .Site.Title }}">
     <meta name="twitter:description" content="{{ if .IsNode }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ else }}{{ with .Description }}{{ . }}{{ end }}{{ end }}">
 
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="{{ .Title }} &middot; {{ .Site.Title }}">
-    <meta property="og:description" content="{{ if .IsNode }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ else }}{{ with .Description }}{{ . }}{{ end }}{{ end }}">
+    <!-- Title -->
+    <title>{{ .Title }} &middot; {{ .Site.Title }}</title>
 
+    <!-- CSS -->
     <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Oxygen:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
     <!--[if lte IE 8]>
@@ -34,5 +63,11 @@
     {{ else }}
       <link rel="stylesheet" href="{{ .Site.BaseUrl }}/css/highlight/solarized_dark.css">
     {{ end }}
+
+    <!-- Icon -->
+    <link href="/favicon.ico" rel="icon">
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ .Site.BaseUrl }}/index.xml">
 </head>
 <body>

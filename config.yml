@@ -1,0 +1,23 @@
+baseurl: "http://example.com"
+languagecode: "en-us"
+title: "purehugo-kerkerj"
+metadataformat: "yaml"
+
+params:
+  dateform:         "2006-01-01 15:04"
+  description:      "ya"
+  twitter:          "Your twitter id"
+  github:           "Your github id"
+  facebook:         "Your facebook id"
+  linkedin_url:     "Your linkedin profile link"
+  google_analytics: "UA-xxxxxx-xx"
+  highlight_style:  "solarized_dark"
+  author:           "Your name."
+  static_links:     []
+  gravatar_hash:    "Your Hash."  # TODO
+
+# Disqus Comments
+disqusShortname:    "Your disqusShortname"
+
+permalinks:
+  post: /blog/:year/:month/:day/:filename/

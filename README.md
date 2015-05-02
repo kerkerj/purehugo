@@ -13,26 +13,6 @@ $ hugo server --theme=purehugo-kerkerj
 
 ## Config file
 
-The config file in toml format:
-
-```toml
-baseurl = "http://dplesca.github.io/purehugo/"
-languageCode = "en-us"
-title = "purehugo"
-theme = "purehugo-kerkerj"
-Paginate = 10
-disqusShortname = "xxxx"
-
-[params]
-  twitter: "twitter_id"
-  github: "github_id"
-  facebook: "facebook_id"
-  linkedin: "linkedin_profile_url"  
-  description = "Demo site for a hugo theme"
-  google_analytics = "UA-xxxxxx-xx"
-  highlight_style = "railscasts"
-```
-
 The config file in yaml format:
 
 ```yaml
@@ -51,6 +31,25 @@ params:
   description: "Demo site for a hugo theme"
   google_analytics: "UA-xxxxxx-xx"
   highlight_style: "railscasts"
+  static_links: ["Note", "About"]
+  
+# RSS config
+languageCode: "en-us"
+copyright: "This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License."
+
+author:
+    name: "kerkerj"
+```
+
+`static_links: ["Note", "About"]` 
+
+You can add static links to the sidebar, the values in the array are the names of the posts.
+
+It will generate the links like this:
+
+```
+http://localhost:1313/note/
+http://localhost:1313/about/
 ```
 
 `highlight_style` default value is `solarized_dark`
@@ -117,3 +116,13 @@ $ gulp compress
 ```
 
 Just edit `gulpfile.js` to add tasks you want.
+
+## TODO
+
+* Gravatar
+* Tagging
+* Archives
+
+## License
+
+[LICENSE](LICENSE.md)
