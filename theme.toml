@@ -1,12 +1,11 @@
-name = "purehugo"
-description = "A theme based on the pure css blog layout"
+name = "purehugo-kerkerj"
+description = "A theme based on the pure css blog layout forked from purehugo"
 license = "MIT"
-source_repo = "https://github.com/dplesca/purehugo"
+source_repo = "https://github.com/kerkerj/purehugo"
 tags = ["blog", "purecss"]
 min_version = 0.13
 
 [author]
-    name = "dplesca"
-    twitter = "http://twitter.com/dragos_plesca"
-    url = "http://github.com/dplesca"
-
+    name = "kerkerj"
+    twitter = "http://twitter.com/kerkerj"
+    url = "http://github.com/kerkerj"
